@@ -1,0 +1,3 @@
+#!/bin/bash
+for x in $(wotsap -w keys.wot -p | egrep "^0x" | cut -b -10); do echo -n "$x "; wotsap -w keys.wot $x | grep "Mean shortest dist" | cut -b 35-; done > meandistance
+for k in $(sort -k2 meandistance | cut -b -10); do wotsap -w keys.wot $k | egrep '(Statistics for key|Mean shortest dist)'; done

@@ -1,0 +1,8 @@
+#!/bin/bash
+if [[ -z $1 ]]; then
+    echo 'Usage: ./update <keyserver> <startkeys>'
+    exit 2
+fi;
+
+./pks2wot --pksclient=./pksclient --startkeys=$2 Keyserver $1 keys.wot
+
